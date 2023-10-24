@@ -1,0 +1,230 @@
+﻿@using Accounting.DATA.Entity
+@model Bank
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Banka Detay</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Bank/Detail">Bankalar</a></li>
+                    <li class="breadcrumb-item active">Banka Detay</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-4">
+                <div class="card card-primary">
+                    <div class="card-body">
+                        <button class="btn btn-info col mb-3" data-toggle="modal" data-target="#modalAdd" onclick="InOut(0)" style="float:right">Gelir İşle (+)</button>
+                        <button class="btn btn-danger col mb-3" data-toggle="modal" data-target="#modalAdd" onclick="InOut(1)" style="float:right">Gider İşle (-)</button>
+                        <a href="" class="btn btn-warning col">Detaylı Rapor</a>
+                    </div>
+                </div>
+
+                <div class="card card-primary">
+                    <div class="card-body">
+                        <hr />
+                        <p>Giriş <b id="giris"></b></p>
+                        <hr />
+                        <p>Çıkış <b id="cikis"></b></p>
+                        <hr />
+                        <p>Bakiye <b id="bakiye"></b></p>
+                        <hr />
+                        <p>Toplam Bakiye <b id="total"></b></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-8">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Banka Detay</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="" method="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">Kasa İsmi</label>
+                                <input type="text" class="form-control" value="@Model.Name" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label for="BankName">BankName</label>
+                                <input type="text" class="form-control" value="@Model.BankName" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label for="BankBranch">Banka Şube</label>
+                                <input type="text" class="form-control" value="@Model.BankBranch" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label for="AccountNo">AccountNo</label>
+                                <input type="text" class="form-control" value="@Model.AccountNo" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label for="Iban">Iban</label>
+                                <input type="text" class="form-control" value="@Model.Iban" readonly="readonly">
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            <a class="btn btn-primary" href="/Bank/Index">Bankalar Sayfasına Geri Dön</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="list-partial">
+
+</div>
+
+
+@section scripts{
+    <script>
+        function closeModal() {
+            $('#modalPay').modal('hide');
+            $('#modalAdd').modal('hide');
+            $('#modalUpdate').modal('hide');
+            $('#modalDetail').modal('hide');
+        }
+
+        function InOut(type) {
+            $("#Type").val(type);
+
+            if (type==0) {
+                $("#header").val("Gelir İşle");
+            }
+            if (type == 1) {
+                $("#header").val("Gider İşle");
+            }
+        }
+
+        function Partial() {
+            $.ajax({
+                url: "/Bank/GetListDetail",
+                data: {
+                    "BankId": '@Model.Id'
+                },
+                success: function (result) {
+                    $('#list-partial').html(result);
+                    GetBalance();
+                },
+
+            })
+        }
+
+        function Duzenle(PaymentId) {
+            $.ajax({
+                url: "/Payment/Update",
+                data: {
+                    "PaymentId": PaymentId
+                },
+
+                success: function (result) {
+                    $('#modal-update').html(result);
+                },
+
+            })
+        }
+
+        function DuzenlePost() {
+            var payment = {
+                Id: $("#UpdateId").val(),
+                Date: $("#UpdateDate").val(),
+                Description: $("#UpdateDescription").val(),
+                DocNo: $("#UpdateDocNo").val(),
+                Amount: $("#UpdateAmount").val(),
+            };
+
+            $.ajax({
+                url: "/Payment/Update",
+                data: {
+                    "payment": payment
+                },
+                type: "POST",
+
+                success: function (response) {
+                    if (response.status == true) {
+
+                        toastr.success(response.message);
+
+                        setTimeout(function () {
+                            closeModal();
+                            Partial();
+                        }, 700);
+                    }
+                    else {
+                        toastr.error(response.message);
+                    }
+                }
+            })
+        }
+
+        function Sil(PaymentId) {
+            $.ajax({
+                url: "/Payment/Delete",
+                data: {
+                    "PaymentId": PaymentId
+                },
+
+                success: function (response) {
+                    if (response.status == true) {
+
+                        toastr.success(response.message);
+
+                        setTimeout(function () {
+                            Partial();
+                        }, 500);
+                    }
+                    else {
+                        toastr.error(response.message);
+                    }
+                }
+            })
+        }
+
+
+
+        function GetBalance() {
+            $.ajax({
+                url: "/Bank/Calculate",
+                data: {
+                    "BankId": '@Model.Id'
+                },
+                success: function (result) {
+                    console.log(result);
+                    $('#giris').html(result.in);
+                    $('#cikis').html(result.out);
+                    $('#bakiye').html(result.total);
+                    $('#total').html(result.totalNotFiltered);
+                },
+
+            })
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            Partial();
+        });
+    </script>
+
+}
+

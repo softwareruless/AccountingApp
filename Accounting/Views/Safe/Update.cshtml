@@ -1,0 +1,58 @@
+﻿@using Accounting.DATA.Entity
+@model Safe
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kasa Güncelle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Kasa Güncelle</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Kasa Ekle</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="/Safe/Update" method="post">
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">Kasa İsmi</label>
+                                <input type="text" class="form-control" id="Name" placeholder="İsim Giriniz" name="Name" value="@Model.Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="Description">Açıklama</label>
+                                <input type="text" class="form-control" id="Description" placeholder="Açıklama Giriniz" name="Description" value="@Model.Description">
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Kasa Güncelle</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

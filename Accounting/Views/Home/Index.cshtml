@@ -1,0 +1,253 @@
+﻿@using Accounting.DATA.Entity
+@{
+    ViewData["Title"] = "Home Page";
+    var shortcuts = ViewBag.Shortcuts as List<UserShortcut>;
+}
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            @foreach (var shortcut in shortcuts)
+            {
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>150</h3>
+
+                            <p>@shortcut.Shortcut.Name</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-@shortcut.Shortcut.Icon"></i>
+                        </div>
+                        <a href="@shortcut.Shortcut.Path" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="row">
+
+
+
+            <div class="col-3">
+                <div class="card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">Günlük Satış</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="gunlukSatisChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        <p id="gunlukSatisP" hidden style="margin-top:-40px">Henüz Veri Yok</p>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+
+            <div class="col-3">
+
+                <div class="card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">Günlük Alış</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="gunlukAlisChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        <p id="gunlukAlisP" hidden style="margin-top:-40px">Henüz Veri Yok</p>
+
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+
+            <div class="col-3">
+
+                <div class="card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">Günlük Tahsilat</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="gunlukTahsilatChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        <p id="gunlukTahsilatP" hidden style="margin-top:-40px">Henüz Veri Yok</p>
+
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+
+            <div class="col-3">
+
+                <div class="card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">Günlük Ödeme</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="gunlukOdemeChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        <p id="gunlukOdemeP" hidden style="margin-top:-40px">Henüz Veri Yok</p>
+
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Yedi Günlük Satış</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="yediGunlukSatis" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">7 Günlük Vadesi Gelecek İşlemler</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="yediGunlukVade" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Yedi Günlük Banka Hareketleri</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="yediGunlukBanka" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Area Chart</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="yediGunlukKasa" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Banka Bakiyeleri</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Banka</th>
+                                    <th>Hesap No</th>
+                                    <th>Bakiye</th>
+                                </tr>
+                            </thead>
+                            <tbody id="banks">
+                                <tr class="allitemlistlines" id="row">
+                                    <td><p class="bank"></p></td>
+                                    <td><p class="account"></p></td>
+                                    <td><p class="amount"></p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Kasa Bakiyeleri</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Kasa</th>
+                                    <th>Bakiye</th>
+                                </tr>
+                            </thead>
+                            <tbody id="safes">
+                                <tr class="allitemlistlines" id="row">
+                                    <td><p class="bank"></p></td>
+                                    <td><p class="amount"></p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</section>
+
+<script src="~/js/DashBoard.js"></script>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            getReports();
+        });
+    </script>
+}

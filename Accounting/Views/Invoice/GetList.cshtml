@@ -1,0 +1,87 @@
+﻿@using Accounting.DATA.Entity
+@using Accounting.DATA.Enums
+@model IEnumerable<Invoice>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">DataTable with default features</h3>
+
+                    </div>
+                    <!-- /.card-header -->
+
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>İşlem</th>
+                                    <th>Type</th>
+                                    <th>Müşteri</th>
+                                    <th>Yetkili</th>
+                                    <th>Tarih</th>
+                                    <th>Total</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    @foreach (var item in Model)
+                                    {
+
+
+                                        <tr>
+                                            @if (item.Type == InvoiceType.OfferGiven || item.Type == InvoiceType.OfferReceived)
+                                            {
+                                                <td><a class="btn btn-success" href="/Invoice/OfferToOrder?InvoiceId=@item.Id">Teklifi Siparişe Dönüştür</a></td>
+                                            }
+                                            @if (item.Type == InvoiceType.OrderGiven || item.Type == InvoiceType.OrderReceived)
+                                            {
+                                                <td><a class="btn btn-success" href="/Invoice/OfferToOrder?InvoiceId=@item.Id">Siparişi Faturaya Dönüştür</a></td>
+                                            }
+                                            <td>@item.Type</td>
+                                            <td>@item.CompanyName</td>
+                                            <td>@item.Authorized</td>
+                                            <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                                            <td>@item.Total</td>
+                                            <td>
+                                                @*<button class="btn btn-warning" data-toggle="modal" data-target="#modalUpdate" onclick="Duzenle('@item.Id')">Güncelle</button>*@
+                                                <button class="btn btn-info" data-toggle="modal" data-target="#modalDetail" onclick="Detay('@item.Id')">Detay</button>
+                                                <button class="btn btn-danger" onclick="Sil('@item.Id')">Sil</button>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
+</script>
+

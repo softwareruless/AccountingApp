@@ -1,0 +1,37 @@
+﻿@using Accounting.DATA.Entity
+@model ExpenseTitle
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Gelir/Gider Güncelle</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form>
+        <div class="card-body">
+
+            <input type="hidden" id="IdUpdate" value="@Model.Id" />
+
+            <div class="form-group">
+                <label for="NameUpdate">İsim</label>
+                <input type="text" class="form-control" id="NameUpdate" placeholder="İsim Giriniz" value="@Model.Name">
+            </div>
+
+            <div class="form-group">
+                <label for="CodeUpdate">Code</label>
+                <input type="text" class="form-control" id="CodeUpdate" placeholder="Code Giriniz" value="@Model.Code">
+            </div>
+
+            <div class="form-group">
+                <label for="SubNoUpdate">SubNo</label>
+                <input type="text" class="form-control" id="SubNoUpdate" placeholder="SubNo Giriniz" value="@Model.SubNo">
+            </div>
+
+            <div class="form-group">
+                <label for="DescriptionUpdate">Description</label>
+                <input type="text" class="form-control" id="DescriptionUpdate" placeholder="Description Giriniz" value="@Model.Description">
+            </div>
+
+        </div>
+    </form>
+</div>

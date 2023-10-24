@@ -1,0 +1,305 @@
+﻿@using Accounting.DATA.Entity
+@{
+    ViewData["Title"] = "Yeni Verilen Sipariş";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var customers = ViewBag.Customers as List<Customer>;
+    var products = ViewBag.Products as List<Product>;
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@ViewData["Title"]</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Invoice/Index">Teklif/Sipariş</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewData["Title"]</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label>Müşteri</label>
+                                    <select class="form-control" id="CustomerId" onchange="GetCustomer()">
+                                        <option value="0">Müşteri Seçiniz</option>
+                                        @foreach (var item in customers)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="CompanyName">Ünvan</label>
+                                    <input type="text" class="form-control" id="CompanyName" placeholder="Ünvan Giriniz">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Authorized">Yetkili</label>
+                                    <input type="text" class="form-control" id="Authorized" placeholder="Yetkili Giriniz">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Address">Adres</label>
+                                    <input type="text" class="form-control" id="Address" placeholder="Adres Giriniz">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="City">İl</label>
+                                    <input type="text" class="form-control" id="City" placeholder="İl Giriniz">
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label for="Date">Tarih</label>
+                                    <input type="datetime-local" class="form-control" id="Date" placeholder="Tarih Giriniz">
+                                </div>
+                                <div class="form-group">
+                                    <label for="TaxOffice">Vergi Dairesi</label>
+                                    <input type="text" class="form-control" id="TaxOffice" placeholder="Vergi Dairesi Giriniz">
+                                </div>
+                                <div class="form-group">
+                                    <label for="TaxNo">Vergi No</label>
+                                    <input type="text" class="form-control" id="TaxNo" placeholder="Vergi No Giriniz">
+                                </div>
+                                <div class="form-group">
+                                    <label for="District">İlçe</label>
+                                    <input type="text" class="form-control" id="District" placeholder="Vergi No Giriniz">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Description">Açıklama</label>
+                                    <input type="text" class="form-control" id="Description" placeholder="Açıklama Giriniz">
+                                </div>
+                                @*<div class="form-group">
+            <label>Ödeme Yöntemi</label>
+            <select class="form-control" id="paymentMethod" onclick="GetPaymentType()">
+                <option value="0">Nakit</option>
+                <option value="1">Açık Hesap</option>
+                <option value="2">Kredi Kartı</option>
+                <option value="3">Havale</option>
+                <option value="4">Taksit</option>
+            </select>
+        </div>
+        <div class="form-group" id="creditCard">
+            <label>Ödeme Yöntemi</label>
+            <select class="form-control" id="banks">
+                <option value="0">İş Bankası</option>
+                <option value="1">Ziraat</option>
+                <option value="2">Yapı Kredi</option>
+                <option value="3">Vakıfbank</option>
+            </select>
+        </div>
+        <div>
+            <div class="form-group" id="installment">
+                <label>Taksit Türü</label>
+                <select class="form-control" id="installmentType">
+                    <option value="1">Aylık</option>
+                    <option value="2">2 Aylık</option>
+                    <option value="3">3 Aylık</option>
+                    <option value="6">6 Aylık</option>
+                </select>
+            </div>
+            <div class="form-group" id="installment">
+                <label>Taksit Sayısı</label>
+                <select class="form-control" id="installmentAmount">
+                    <option value="1">Aylık</option>
+                    <option value="2">2 Aylık</option>
+                    <option value="3">3 Aylık</option>
+                    <option value="6">6 Aylık</option>
+                </select>
+            </div>
+        </div>*@
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Responsive Hover Table</h3>
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <button class="btn btn-primary" onclick="CloneRow()">Satır Ekle</button>
+
+                                @*<button class="btn btn-primary" onclick="deneme()">Tıkla</button>
+                                    <button class="btn btn-primary" onclick="">Tıkla 2</button>*@
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap" id="table">
+                            <thead>
+                                <tr>
+                                    <th>Ürün</th>
+                                    <th>Fiyat</th>
+                                    <th>Adet</th>
+                                    <th>İskonto</th>
+                                    <th>İskonto Tipi</th>
+                                    <th>KDV</th>
+                                    <th>KDV Tipi</th>
+                                    <th>Satır Toplam</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody id="items">
+                                <tr class="allitemlistlines" id="row">
+                                    <td>
+                                        <select class="form-control product" style="min-width:20px" onchange="GetProduct.call(this);">
+                                            <option value="0">Ürün Seçiniz</option>
+                                            @foreach (var item in products)
+                                            {
+                                                <option value="@item.Id">@item.Name</option>
+                                            }
+                                        </select>
+                                    </td>
+                                    <td><input class="form-control price" style="max-width: 100px" type="number" onchange="CalculateRow.call(this);CalculateAll()" min="0" value="0" /></td>
+                                    <td><input class="form-control amount" style="max-width: 100px" type="number" onchange="CalculateRow.call(this);CalculateAll()" min="0" value="0" /></td>
+
+                                    <td><input class="form-control discount" style="max-width: 100px" type="number" step="1" value="0" onchange="CalculateRow.call(this);CalculateAll()"></td>
+                                    <td>
+                                        <select class="form-control discounttype" onchange="CalculateRow.call(this);CalculateAll()">
+                                            <option value="0">TL</option>
+                                            <option value="1">Yüzde</option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <select class="form-control tax" style="min-width:15px" onchange="CalculateRow.call(this);CalculateAll()">
+                                            <option value="0">YOK</option>
+                                            <option value="1">%1</option>
+                                            <option value="8">%8</option>
+                                            <option value="18">%18</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control taxtype" onchange="CalculateRow.call(this);CalculateAll()">
+                                            <option value="1">KDV Dahil</option>
+                                            <option value="0">KDV Hariç</option>
+                                        </select>
+                                    </td>
+
+                                    <td><input class="form-control total" style="max-width: 100px" type="number" readonly="readonly" /></td>
+                                    <td>
+                                        <button class="btn btn-danger rowDelete" onclick="deleteRow.call(this)">Sil</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- accepted payments column -->
+            <div class="col-md-6">
+                <label>Tevkifat Oranı</label>
+                <select class="form-control" id="tevkifatrate" onchange="CalculateAll()">
+                    <option value="0">YOK</option>
+                    <option value="1">1/10</option>
+                    <option value="2">2/10</option>
+                    <option value="3">3/10</option>
+                    <option value="4">4/10</option>
+                    <option value="5">5/10</option>
+                    <option value="6">6/10</option>
+                    <option value="7">7/10</option>
+                    <option value="8">8/10</option>
+                    <option value="9">9/10</option>
+                    <option value="10">10/10</option>
+                </select>
+            </div>
+            <!-- /.col -->
+            <div class="col-md-6">
+                <p class="lead">Amount Due @DateTime.Now.ToString("dd/mm/yyyy")</p>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th style="width:50%">Ara Toplam</th>
+                            <td id="subTotal"></td>
+                        </tr>
+                        <tr>
+                            <th>İndirim</th>
+                            <td id="discount"></td>
+                        </tr>
+                        <tr>
+                            <th>KDV</th>
+                            <td id="tax"></td>
+                        </tr>
+                        <tr>
+                            <th>Tevkifat</th>
+                            <td id="tevkifat"></td>
+                        </tr>
+                        <tr>
+                            <th>Genel Toplam</th>
+                            <td id="total"></td>
+                        </tr>
+                    </table>
+                    <button class="btn btn-primary" onclick="CreateInvoice()">Create Invoice</button>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+
+    </div>
+</section>
+<input type="hidden" id="InvoiceType" value="3" />
+
+<script src="~/js/Buy.js" type="text/javascript"></script>
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+            TableRow();
+        });
+
+    </script>
+}
+
+
+
+
+
+
+

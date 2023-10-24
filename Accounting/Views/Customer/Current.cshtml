@@ -1,0 +1,207 @@
+﻿@using Accounting.DATA.Entity
+@using Accounting.DATA.Model
+@{
+    ViewData["Title"] = "Current";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Customer = ViewBag.Customer as Customer;
+    var Payments = ViewBag.Payments as List<Payment>;
+    var Currents = ViewBag.Currents as List<GetCurrentByDateForCustomerModel>;
+}
+<input type="hidden" id="CustomerId" value="@Customer.Id" />
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Cari Hesap</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Customer/Index">Müşteriler</a></li>
+                    <li class="breadcrumb-item active">Cari Hesap</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header p-2">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Firma Bilgileri</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Ayrıntılar</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                        </ul>
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="active tab-pane" id="activity">
+                                <div class="card card-info">
+                                    <form class="form-horizontal">
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Firma İsmi</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="inputEmail3" value="@Customer.CompanyName" readonly="readonly">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputEmail2" class="col-sm-2 col-form-label">Adres</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="inputEmail2" value="@Customer.Authorized" readonly="readonly">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="timeline">
+
+                                <p>adana</p>
+
+                            </div>
+                            <!-- /.tab-pane -->
+
+                            <div class="tab-pane" id="settings">
+
+                                <p>bursa</p>
+
+                            </div>
+                            <!-- /.tab-pane -->
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+
+            <div class="col-md-3">
+                <button class="btn btn-primary col mb-3">Satış Yap</button><br />
+                <a class="btn btn-primary col mb-3" href="/Payment/Create?CustomerId=@Customer.Id&Type=0">Tahsilat Yap</a><br />
+                <a class="btn btn-primary col" href="/Payment/Create?CustomerId=@Customer.Id&Type=1">Ödeme Yap</a>
+            </div>
+
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <label>Bakiye : <b id="balance"></b></label>
+                        <button class="btn " id="button-label"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">İşlemler</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Tarih</th>
+                                    <th>Tutar</th>
+                                    <th>İşlem Türü</th>
+                                    <th>Bakiye</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Payments != null)
+                                {
+                                    foreach (var item in Payments.OrderBy(p=>p.Date))
+                                    {
+                                        var Current = Currents.Where(c => c.Id == item.Id).FirstOrDefault();
+                                        <tr>
+                                            <td>@item.CreatedOn</td>
+                                            <td>@item.Amount</td>
+                                            <td>@item.Type</td>
+                                            <td>@Current.Amount</td>
+                                            <td>
+                                                @*<a class="btn btn-warning" href="/Bank/Update?id=@item.Id">Güncelle</a>*@
+                                                @*<a class="btn btn-danger" href="/Bank/Delete?id=@item.Id">Sil</a>*@
+                                                <a class="btn btn-info" href="/Installment/InstallmentPayment?InstallmentId=@item.Id">Detay</a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+@section scripts{
+    <script>
+        function GetBalance() {
+            var CustomerId = $('#CustomerId').val();
+
+            $.ajax({
+                url: "/Payment/CalculateCurrentByCustomer",
+                data: {
+                    "CustomerId": CustomerId
+                },
+
+                success: function (response) {
+                    if (response != null) {
+
+                        if (response > 0) {
+                            $('#balance').html(Math.abs(response));
+                            $('#button-label').html("Alacaklı");
+                            $('#button-label').addClass("btn-danger");
+                        }
+                        if (response < 0) {
+                            $('#balance').html(Math.abs(response));
+                            $('#button-label').html("Borçlu");
+                            $('#button-label').addClass("btn-success");
+                        }
+                        if (response == 0) {
+                            $('#balance').html(response);
+                            $('#button-label').html("Borç Yok");
+                            $('#button-label').addClass("btn-primary");
+                        }
+
+
+                        //toastr.success(response.message);
+
+                        //setTimeout(function () {
+                        //    Partial();
+                        //}, 500);
+                    }
+                    else {
+                        toastr.error("Bakiye Hesaplanırken Bir Hata Oluştu");
+                    }
+                }
+            })
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            GetBalance();
+        });
+    </script>
+}
+
+
+
+
+

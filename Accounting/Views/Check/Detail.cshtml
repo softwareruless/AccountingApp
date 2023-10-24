@@ -1,0 +1,148 @@
+﻿@using Accounting.DATA.Entity
+@model Check
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Çek/Senet Detay</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Home">Home</a></li>
+                    <li class="breadcrumb-item active">Çek/Senet Detay</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-7">
+
+                <div class="card card-primary">
+                    @*<div class="card-header">
+                            <h3 class="card-title">Çek/Senet Detay</h3>
+                        </div>*@
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Müşteri</label>
+                            <input type="text" class="form-control" id="Name" placeholder="İsim Giriniz" name="Name" value="@Model.CustomerId" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">İsim</label>
+                            <input type="text" class="form-control" id="Name" placeholder="İsim Giriniz" name="Name" value="@Model.Name" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Amount">Tutar</label>
+                            <input type="number" class="form-control" id="Amount" placeholder="Tutar" name="Amount" value="@Model.Amount" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Description">Açıklama</label>
+                            <input type="text" class="form-control" id="Description" placeholder="Açıklama Giriniz" name="Description" value="@Model.Description" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="CheckNo">CheckNo</label>
+                            <input type="text" class="form-control" id="CheckNo" placeholder="CheckNo Giriniz" name="CheckNo" value="@Model.CheckNo" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="BankName">BankName</label>
+                            <input type="text" class="form-control" id="BankName" placeholder="BankName Giriniz" name="BankName" value="@Model.BankName" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="BankBranch">BankBranch</label>
+                            <input type="text" class="form-control" id="BankBranch" placeholder="BankBranch Giriniz" name="BankBranch" value="@Model.BankBranch" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="AccountNumber">AccountNumber</label>
+                            <input type="text" class="form-control" id="AccountNumber" placeholder="AccountNumber Giriniz" name="AccountNumber" value="@Model.AccountNumber" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Title">Title</label>
+                            <input type="text" class="form-control" id="Title" placeholder="Title Giriniz" name="Title" value="@Model.Title" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Date">Tarih</label>
+                            <input type="text" class="form-control" id="Date" placeholder="Tarih Giriniz" name="Date" value="@Model.Date" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="ExpiryDate">Vade Tarihi</label>
+                            <input type="text" class="form-control" id="ExpiryDate" placeholder="ExpiryDate Giriniz" name="ExpiryDate" value="@Model.ExpiryDate" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Durum</label>
+                            <input type="text" class="form-control" id="Status" placeholder="Status Giriniz" name="Status" value="@Model.Status" readonly>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Evrak Türü</label>
+                            <input type="text" class="form-control" id="DocType" placeholder="DocType Giriniz" name="DocType" value="@Model.DocType" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Çek Türü</label>
+                            <input type="text" class="form-control" id="Type" placeholder="Type Giriniz" name="Type" value="@Model.Type" readonly>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <a href="/Check/Index" class="btn btn-primary">Çek/Senet Listesi</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5">
+                <div class="card card-primary">
+
+                    <div class="card-body">
+                        <a class="btn btn-primary col mb-3" href="/Check/Update?CheckId=@Model.Id">Düzelt</a><br />
+                        <a class="btn btn-primary col mb-3">İade Yap</a><br />
+
+                        @if (Model.Kind == 0)
+                        {
+                            <a class="btn btn-primary col mb-3" href="/Payment/Create?CustomerId=@Model.CustomerId&&Type=1&&amount=@Model.Amount&&CheckId=@Model.Id">Ödeme Yap</a><br />
+                        }
+                        else
+                        {
+                            <a class="btn btn-primary col mb-3" href="/Payment/Create?CustomerId=@Model.CustomerId&&Type=0&&amount=@Model.Amount&&CheckId=@Model.Id">Tahsilat Yap</a><br />
+                        }
+
+                        <a class="btn btn-primary col mb-3" href="/Check/MakeEndorsed?CheckId=@Model.Id">Ciro Et</a><br />
+
+                        @if (Model.Type == Accounting.DATA.Enums.CheckType.CustomerDoc)
+                        {
+                            <a class="btn btn-primary col mb-3" href="/Check/SendBank?CheckId=@Model.Id">Bankaya Ver</a><br />
+                        }
+                        else
+                        {
+
+                        }
+
+                        @if (Model.Kind == 0)
+                        {
+                            <a class="btn btn-primary col mb-3">Verilen Çek/Senet Bordrosu</a><br />
+                        }
+                        else
+                        {
+                            <a class="btn btn-primary col mb-3">Alınan Çek/Senet Bordrosu</a><br />
+                        }
+
+                        <a class="btn btn-primary col mb-3">Raporla</a><br />
+                        <a class="btn btn-danger col mb-3">Sil</a><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

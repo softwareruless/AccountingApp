@@ -1,0 +1,14 @@
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/bin/Release/netcoreapp6.0/Accounting.DATA.deps.json
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/bin/Release/netcoreapp6.0/Accounting.DATA.runtimeconfig.json
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/bin/Release/netcoreapp6.0/Accounting.DATA.dll
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/bin/Release/netcoreapp6.0/Accounting.DATA.pdb
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/obj/Release/netcoreapp6.0/Accounting.DATA.csproj.AssemblyReference.cache
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/obj/Release/netcoreapp6.0/Accounting.DATA.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/obj/Release/netcoreapp6.0/Accounting.DATA.AssemblyInfoInputs.cache
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/obj/Release/netcoreapp6.0/Accounting.DATA.AssemblyInfo.cs
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/obj/Release/netcoreapp6.0/Accounting.DATA.csproj.CoreCompileInputs.cache
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/obj/Release/netcoreapp6.0/Accounting.DATA.dll
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/obj/Release/netcoreapp6.0/refint/Accounting.DATA.dll
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/obj/Release/netcoreapp6.0/Accounting.DATA.pdb
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/obj/Release/netcoreapp6.0/Accounting.DATA.genruntimeconfig.cache
+/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting.DATA/obj/Release/netcoreapp6.0/ref/Accounting.DATA.dll

@@ -1,0 +1,74 @@
+﻿@using Accounting.DATA.Entity
+@model Expense
+@{
+    var Safes = ViewBag.Safes as List<Safe>;
+}
+
+<div class="card card-primary">
+    <div class="card-body">
+
+        <div class="card-header">
+            <h3 class="card-title">Gelir/Gider Ekle</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <div class="card-body">
+            <form>
+
+                <div class="form-group">
+                    <label for="BankIdPay">Kasa</label>
+                    <select class="form-control" id="PaySafeId">
+                        <option>Kasa Seçiniz</option>
+                        @foreach (var item in Safes)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function Pay() {
+        var payment = {
+            ExpenseId: '@Model.Id',
+            Amount: '@Model.Amount',
+            SafesId: $('#PaySafeId').val(),
+            Name: '@Model.Name',
+            Description: '@Model.Description',
+            Type: '@Model.Type',
+        };
+
+        console.log(payment.Type);
+
+        $.ajax({
+            url: "/Expense/Pay",
+            data: {
+                "payment": payment
+            },
+            type: 'POST',
+
+            success: function (response) {
+
+                if (response.status == true) {
+
+                    toastr.success(response.message);
+
+                    setTimeout(function () {
+                        closeModal();
+                        Partial();
+                    }, 700);
+                }
+                else {
+                    toastr.error(response.message);
+                }
+            },
+
+        })
+    }
+</script>
+

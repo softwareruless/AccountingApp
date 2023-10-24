@@ -1,0 +1,114 @@
+﻿@using Accounting.DATA.Entity
+@using Accounting.DATA.Enums
+@model Customer
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Safes = ViewBag.Safes as List<Safe>;
+    var Banks = ViewBag.Banks as List<Bank>;
+    var Type = ViewBag.Type as PaymentType?;
+    var amount = ViewBag.amount as string;
+    var InvoiceId = ViewBag.InvoiceId as Guid?;
+    var InstallmentId = ViewBag.InstallmentId as Guid?;
+    var CheckId = ViewBag.CheckId as Guid?;
+}
+
+<input type="hidden" id="CustomerId" value="@Model.Id" />
+<input type="hidden" id="Type" value="@Type" />
+<input type="hidden" id="InvoiceId" value="@InvoiceId" />
+<input type="hidden" id="InstallmentId" value="@InstallmentId" />
+<input type="hidden" id="CheckId" value="@CheckId" />
+
+<div class="col-md-6">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h1 class="card-title">Cari Bilgileri</h1><br />
+            <h3 class="card-title"><label>Firma Adı : </label>@Model.CompanyName</h3><br />
+            <h3 class="card-title"><label>Yetkili : </label>@Model.Authorized</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <div class="card-body">
+            <div class="form-group">
+                <label for="ProcessDate">İşlem Tarihi</label>
+                <input type="datetime-local" class="form-control" id="ProcessDate" placeholder="Tarih Giriniz">
+            </div>
+            <div class="form-group">
+                <label>Ödeme Yöntemi</label>
+                <select class="form-control" id="paymentMethod" onchange="GetPaymentMethod()">
+                    <option value="0">Ödeme Yöntemi Seçiniz</option>
+                    <option value="1">Nakit</option>
+                    <option value="2">Açık Hesap</option>
+                    <option value="3">Kredi Kartı</option>
+                    <option value="4">Havale</option>
+                </select>
+            </div>
+            <div class="form-group" id="creditCard" hidden>
+                <label>Banka</label>
+                <select class="form-control" id="bank">
+                    <option>Banka Seçiniz</option>
+                    @foreach (var item in Banks)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="documentNo">Evrak No</label>
+                <input type="text" class="form-control" id="documentNo" placeholder="Evrak No Giriniz">
+            </div>
+            <div class="form-group" id="banks" hidden>
+                <label>Kasa</label>
+                <select class="form-control" id="safe">
+                    <option value="0">Kasa Seçiniz</option>
+                    @foreach (var item in Safes)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Açıklama</label>
+                <input type="text" class="form-control" id="description" placeholder="Açıklama Giriniz">
+            </div>
+            <div class="form-group">
+                <label for="amount">İşlem Tutarı</label>
+                @if (amount != null)
+                {
+                    <input type="number" class="form-control" id="amount" placeholder="Miktar Giriniz" value="@amount">
+                }
+                <input type="number" class="form-control" id="amount" placeholder="Miktar Giriniz">
+            </div>
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button class="btn btn-primary" onclick="Create()">Submit</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="~/js/Payment.js"></script>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+        });
+
+        function GetPaymentMethod() {
+            var paymentMethod = $('#paymentMethod').val();
+
+            if (paymentMethod == 1 || paymentMethod == 2) {
+                $('#banks').attr("hidden", false);
+                $('#creditCard').attr("hidden", true);
+            }
+            if (paymentMethod == 3 || paymentMethod == 4) {
+                $('#creditCard').attr("hidden", false);
+                $('#banks').attr("hidden", true);
+            }
+        }
+
+    </script>
+}

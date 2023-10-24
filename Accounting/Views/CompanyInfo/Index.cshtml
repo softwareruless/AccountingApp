@@ -1,0 +1,86 @@
+﻿@using Accounting.DATA.Entity
+@model User
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Şirket Bilgilerini Güncelle</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="Name">İsim</label>
+                <input readonly type="text" class="form-control" id="Name" placeholder="İsim Giriniz" value="@Model.Name">
+            </div>
+            <div class="form-group">
+                <label for="Surname">Soyisim</label>
+                <input readonly type="text" class="form-control" id="Surname" placeholder="İsim Giriniz" value="@Model.Surname">
+            </div>
+            <div class="form-group">
+                <label for="CompanyName">Şirket İsmi</label>
+                <input readonly type="text" class="form-control" id="CompanyName" placeholder="Şirket İsmi Giriniz" value="@Model.CompanyName">
+            </div>
+            <div class="form-group">
+                <label for="Authorized">Yetkili</label>
+                <input readonly type="text" class="form-control" id="Authorized" placeholder="Yetkili Giriniz" value="@Model.Authorized">
+            </div>
+            <div class="form-group">
+                <label for="City">City</label>
+                <input readonly type="text" class="form-control" id="City" placeholder="City Giriniz" value="@Model.City">
+            </div>
+            <div class="form-group">
+                <label for="District">District</label>
+                <input readonly type="text" class="form-control" id="District" placeholder="District Giriniz" value="@Model.District">
+            </div>
+            <div class="form-group">
+                <label for="PostCode">PostCode</label>
+                <input readonly type="text" class="form-control" id="PostCode" placeholder="PostCode Giriniz" value="@Model.PostCode">
+            </div>
+            <div class="form-group">
+                <label for="Address">Address</label>
+                <input readonly type="text" class="form-control" id="Address" placeholder="Address Giriniz" value="@Model.Address">
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input readonly type="email" class="form-control" id="Email" placeholder="Email Giriniz" value="@Model.Email">
+            </div>
+            <div class="form-group">
+                <label for="Phone">Phone</label>
+                <input readonly type="text" class="form-control" id="Phone" placeholder="Phone Giriniz" value="@Model.Phone">
+            </div>
+            <div class="form-group">
+                <label for="MersisNo">MersisNo</label>
+                <input readonly type="text" class="form-control" id="MersisNo" placeholder="MersisNo Giriniz" value="@Model.MersisNo">
+            </div>
+            <div class="form-group">
+                <label for="TaxNo">TaxNo</label>
+                <input readonly type="text" class="form-control" id="TaxNo" placeholder="TaxNo Giriniz" value="@Model.TaxNo">
+            </div>
+            <div class="form-group">
+                <label for="TaxOffice">TaxOffice</label>
+                <input readonly type="text" class="form-control" id="TaxOffice" placeholder="TaxOffice Giriniz" value="@Model.TaxOffice">
+            </div>
+            <div class="form-group">
+                <label for="TcNo">TcNo</label>
+                <input readonly type="text" class="form-control" id="TcNo" placeholder="TcNo Giriniz" value="@Model.TcNo">
+            </div>
+            <div class="form-group">
+                <label for="WebSite">WebSite</label>
+                <input readonly type="text" class="form-control" id="WebSite" placeholder="WebSite Giriniz" value="@Model.WebSite">
+            </div>
+
+        </div>
+    </form>
+
+    <button class="btn btn-primary" id="editButton" onclick="Duzenle()">Düzenle</button>
+
+</div>
+
+<script src="~/js/changecompanyinfos.js"></script>
+
+

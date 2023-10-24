@@ -1,0 +1,76 @@
+﻿@using Accounting.DATA.Entity
+@model Installment
+@{
+    ViewData["Title"] = "InstallmentPayment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>DataTables</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+                    <li class="breadcrumb-item active">DataTables</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">DataTable with default features</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Ödeme Tarihi</th>
+                                    <th>Tutar</th>
+                                    <th>Durum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    @foreach (var item in Model.InstallmentPayments)
+                                    {
+                                        <tr>
+                                            <td>@item.PaymentDate</td>
+                                            <td>@item.Price</td>
+                                            <td>
+                                                @if (item.IsPaid)
+                                                {
+                                                    <button class="btn btn-success">Ödendi</button>
+                                                }
+                                                else
+                                                {
+                                                    <a class="btn btn-danger" href="/Payment/Create?CustomerId=@Model.CustomerId&&InstallmentId=@item.Id&&amount=@item.Price&&Type=0">Öde</a>
+                                                }
+                                            </td>
+                                            
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

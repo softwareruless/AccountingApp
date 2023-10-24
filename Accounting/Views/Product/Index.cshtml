@@ -1,0 +1,296 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>DataTables</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+                    <li class="breadcrumb-item active">DataTables</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div id="list-partial">
+
+</div>
+
+<div class="modal fade" id="modalAdd">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Large Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Ürün Ekle</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">İsim</label>
+                                <input type="text" class="form-control" id="Name" placeholder="İsim Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="Description">Description</label>
+                                <input type="text" class="form-control" id="Description" placeholder="Description Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="Description1">Description1</label>
+                                <input type="text" class="form-control" id="Description1" placeholder="Description Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="Description2">Description2</label>
+                                <input type="text" class="form-control" id="Description2" placeholder="Description Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="Description3">Description3</label>
+                                <input type="text" class="form-control" id="Description3" placeholder="Description Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="Description4">Description4</label>
+                                <input type="text" class="form-control" id="Description4" placeholder="Description Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="Stock">Stock</label>
+                                <input type="number" class="form-control" id="Stock" placeholder="Stock Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="Price">Price</label>
+                                <input type="number" step="0.1" class="form-control" id="Price" placeholder="Price Giriniz">
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="SaveUser" onclick="Ekle()">Kaydet</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modalUpdate">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Large Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body" id="modal-body">
+
+            </div>
+
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="SaveUser" onclick="DuzenlePost()">Kaydet</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modalDetail">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Large Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body" id="modal-detail">
+
+            </div>
+
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@section scripts{
+    <script>
+        function closeModal() {
+            $('#modalAdd').modal('hide');
+            $('#modalUpdate').modal('hide');
+            $('#modalDetail').modal('hide');
+        }
+
+        function Partial() {
+            $.ajax({
+                url: "/Product/GetList",
+
+                success: function (result) {
+                    $('#list-partial').html(result);
+                },
+
+            })
+        }
+
+        function Ekle() {
+
+            var model = {
+                Name: $("#Name").val(),
+                Description: $("#Description").val(),
+                Description1: $("#Description1").val(),
+                Description2: $("#Description2").val(),
+                Description3: $("#Description3").val(),
+                Description4: $("#Description4").val(),
+                Stock: $("#Stock").val(),
+                Price: $("#Price").val().replace(".", ",")
+            };
+
+            $.ajax({
+                url: "/Product/Add",
+                data: {
+                    "model": model
+                },
+                type: 'POST',
+
+                success: function (response) {
+
+                    if (response.status == true) {
+
+                        toastr.success(response.message);
+
+                        setTimeout(function () {
+                            closeModal();
+                            Partial();
+                        }, 700);
+                    }
+                    else {
+                        toastr.error(response.message);
+                    }
+                },
+
+                //error: function (error) {
+                //    alert(error.Message);
+
+                //}
+            })
+        }
+
+        function Duzenle(id) {
+            $.ajax({
+                url: "/Product/Update",
+                data: {
+                    "id": id
+                },
+
+                success: function (result) {
+                    $('#modal-body').html(result);
+                },
+
+            })
+        }
+
+        function DuzenlePost() {
+            var model = {
+                Id: $("#IdUpdate").val(),
+                Name: $("#NameUpdate").val(),
+                Description: $("#DescriptionUpdate").val(),
+                Description1: $("#Description1Update").val(),
+                Description2: $("#Description2Update").val(),
+                Description3: $("#Description3Update").val(),
+                Description4: $("#Description4Update").val(),
+                Stock: $("#StockUpdate").val(),
+                Price: $("#PriceUpdate").val().replace(".", ","),
+            };
+
+            $.ajax({
+                url: "/Product/Update",
+                data: {
+                    "model": model
+                },
+                type: "POST",
+
+                success: function (response) {
+                    if (response.status == true) {
+
+                        toastr.success(response.message);
+
+                        setTimeout(function () {
+                            closeModal();
+                            Partial();
+                        }, 700);
+                    }
+                    else {
+                        toastr.error(response.message);
+                    }
+                }
+            })
+        }
+
+        function Sil(id) {
+            $.ajax({
+                url: "/Product/Delete",
+                data: {
+                    "id": id
+                },
+
+                success: function (response) {
+                    if (response.status == true) {
+
+                        toastr.success(response.message);
+
+                        setTimeout(function () {
+                            Partial();
+                        }, 500);
+                    }
+                    else {
+                        toastr.error(response.message);
+                    }
+                }
+            })
+        }
+
+        function Detay(id) {
+            $.ajax({
+                url: "/Product/Detail",
+                data: {
+                    "id": id
+                },
+
+                success: function (result) {
+                    $('#modal-detail').html(result);
+                },
+
+            })
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            Partial();
+        });
+    </script>
+}

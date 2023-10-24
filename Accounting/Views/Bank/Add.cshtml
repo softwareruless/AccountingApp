@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Banka Ekle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Banka Ekle</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Banka Ekle</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="/Bank/Add" method="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">Banka İsmi</label>
+                                <input type="text" class="form-control" id="Name" placeholder="İsim Giriniz" name="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="Description">BankName</label>
+                                <input type="text" class="form-control" id="BankName" placeholder="Bank Name Giriniz" name="BankName">
+                            </div>
+                            <div class="form-group">
+                                <label for="Description">BankBranch</label>
+                                <input type="text" class="form-control" id="BankBranch" placeholder="Banka Şubesi Giriniz" name="BankBranch">
+                            </div>
+                            <div class="form-group">
+                                <label for="StartBalance">Başlangıç Bakiyesi</label>
+                                <input type="text" class="form-control" id="StartBalance" placeholder="Başlangıç Bakiyesi Giriniz" name="StartBalance">
+                            </div>
+                            <div class="form-group">
+                                <label for="AccountNo">AccountNo</label>
+                                <input type="text" class="form-control" id="AccountNo" placeholder="AccountNo Giriniz" name="AccountNo">
+                            </div>
+                            <div class="form-group">
+                                <label for="Iban">Iban</label>
+                                <input type="text" class="form-control" id="Iban" placeholder="Iban" name="Iban">
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Kasa Ekle</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

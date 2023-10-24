@@ -1,0 +1,63 @@
+﻿@using Accounting.DATA.Entity
+@model Customer
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Müşteri Detay</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="NameUpdate">İsim</label>
+                <input type="text" class="form-control" id="NameUpdate" placeholder="İsim Giriniz" value="@Model.Name" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="NameUpdate">Şirket İsmi</label>
+                <input type="text" class="form-control" id="CompanyNameUpdate" placeholder="İsim Giriniz" value="@Model.CompanyName" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="NameUpdate">Yetkili</label>
+                <input type="text" class="form-control" id="AuthorizedUpdate" placeholder="İsim Giriniz" value="@Model.Authorized" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="CityUpdate">City</label>
+                <input type="text" class="form-control" id="CityUpdate" placeholder="City Giriniz" value="@Model.City" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="DistrictUpdate">District</label>
+                <input type="text" class="form-control" id="DistrictUpdate" placeholder="District Giriniz" value="@Model.District" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="PostCodeUpdate">PostCode</label>
+                <input type="text" class="form-control" id="PostCodeUpdate" placeholder="PostCode Giriniz" value="@Model.PostCode" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="AddressUpdate">Address</label>
+                <input type="text" class="form-control" id="AddressUpdate" placeholder="Address Giriniz" value="@Model.Address" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="EmailUpdate">Email</label>
+                <input type="email" class="form-control" id="EmailUpdate" placeholder="Email Giriniz" value="@Model.Email" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="PhoneUpdate">Phone</label>
+                <input type="text" class="form-control" id="PhoneUpdate" placeholder="Phone Giriniz" value="@Model.Phone" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="TaxNoUpdate">TaxNo</label>
+                <input type="text" class="form-control" id="TaxNoUpdate" placeholder="TaxNo Giriniz" value="@Model.TaxNo" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="TaxOfficeUpdate">TaxOffice</label>
+                <input type="text" class="form-control" id="TaxOfficeUpdate" placeholder="TaxOffice Giriniz" value="@Model.TaxOffice" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="TcNoUpdate">TcNo</label>
+                <input type="text" class="form-control" id="TcNoUpdate" placeholder="TcNo Giriniz" value="@Model.TcNo" readonly="readonly">
+            </div>
+
+        </div>
+    </form>
+</div>

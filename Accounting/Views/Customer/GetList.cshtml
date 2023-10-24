@@ -1,0 +1,78 @@
+﻿@using Accounting.DATA.Model
+@model IEnumerable<CustomerResponseModel>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">DataTable with default features</h3>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAdd" style="float:right">
+                            Müşteri Ekle
+                        </button>
+                    </div>
+                    <!-- /.card-header -->
+
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>İsmi</th>
+                                    <th>Yetkili</th>
+                                    <th>Email</th>
+                                    <th>Telefon</th>
+                                    <th>Bakiye</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Name</td>
+                                            <td>@item.Authorized</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.Phone</td>
+                                            <td>@item.Balance</td>
+                                            <td>
+                                                <a class="btn btn-success" button href="/Customer/Current?CustomerId=@item.Id">Cariye Git</a>
+                                                <button class="btn btn-warning" data-toggle="modal" data-target="#modalUpdate" onclick="Duzenle('@item.Id')">Güncelle</button>
+                                                <button class="btn btn-info" data-toggle="modal" data-target="#modalDetail" onclick="Detay('@item.Id')">Detay</button>
+                                                <button class="btn btn-danger" onclick="Sil('@item.Id')">Sil</button>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
+</script>
+

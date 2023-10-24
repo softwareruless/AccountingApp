@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kullanıcı Ekle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Kullanıcı Ekle</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Kullanıcı Ekle</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="/Admin/Account/Add" method="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">İsim</label>
+                                <input type="text" class="form-control" id="Name" placeholder="İsim Giriniz" name="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="Surname">Surname</label>
+                                <input type="text" class="form-control" id="Surname" placeholder="Surname Giriniz" name="Surname">
+                            </div>
+                            <div class="form-group">
+                                <label for="Email">Email</label>
+                                <input type="email" class="form-control" id="Email" placeholder="Email Giriniz" name="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="Phone">Phone </label>
+                                <input type="text" class="form-control" id="Phone" placeholder="Phone Giriniz" name="Phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="Username">Username</label>
+                                <input type="text" class="form-control" id="Username" placeholder="Username Giriniz" name="Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">Password</label>
+                                <input type="password" class="form-control" id="Password" placeholder="Password" name="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="RoleId">RoleId</label>
+                                <input type="text" class="form-control" id="RoleId" placeholder="RoleId" name="RoleId">
+                            </div>
+
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Kullanıcı Ekle</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

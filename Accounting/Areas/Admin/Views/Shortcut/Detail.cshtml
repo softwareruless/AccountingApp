@@ -1,0 +1,26 @@
+﻿@using Accounting.DATA.Entity
+@model Shortcut
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Müşteri Detay</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="NameUpdate">İsim</label>
+                <input type="text" class="form-control" id="NameUpdate" placeholder="İsim Giriniz" value="@Model.Name" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="PathUpdate">Path</label>
+                <input type="text" class="form-control" id="PathUpdate" placeholder="Path Giriniz" value="@Model.Path" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="IconUpdate">Icon</label>
+                <input type="text" class="form-control" id="IconUpdate" placeholder="Icon Giriniz" value="@Model.Icon" readonly="readonly">
+            </div>
+        </div>
+    </form>
+</div>

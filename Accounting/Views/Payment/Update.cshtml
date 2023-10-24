@@ -1,0 +1,32 @@
+﻿@using Accounting.DATA.Entity
+@model Payment
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Müşteri Güncelle</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form>
+        <div class="card-body">
+            <input type="hidden" id="UpdateId" value="@Model.Id" />
+            <div class="form-group">
+                <label for="ProcessDate">İşlem Tarihi</label>
+                <input type="datetime-local" class="form-control" id="UpdateDate" placeholder="Tarih Giriniz" >
+            </div>
+            <div class="form-group">
+                <label for="DescriptionUpdate">Description</label>
+                <input type="text" class="form-control" id="UpdateDescription" placeholder="Description Giriniz" value="@Model.Description">
+            </div>
+            <div class="form-group">
+                <label for="DocNoUpdate">DocNo</label>
+                <input type="text" class="form-control" id="UpdateDocNo" placeholder="DocNo Giriniz" value="@Model.DocNo">
+            </div>
+            <div class="form-group">
+                <label for="AmountUpdate">İşlem Tutarı</label>
+                <input type="number" class="form-control" id="UpdateAmount" placeholder="Miktar Giriniz" value="@Model.Amount">
+            </div>
+
+        </div>
+    </form>
+</div>

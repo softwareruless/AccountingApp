@@ -1,0 +1,64 @@
+﻿@using Accounting.DATA.Entity
+@model Customer
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Müşteri Güncelle</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form>
+        <div class="card-body">
+            <input type="hidden" id="IdUpdate" value="@Model.Id" />
+            <div class="form-group">
+                <label for="NameUpdate">İsim</label>
+                <input type="text" class="form-control" id="NameUpdate" placeholder="İsim Giriniz" value="@Model.Name">
+            </div>
+            <div class="form-group">
+                <label for="NameUpdate">Şirket İsmi</label>
+                <input type="text" class="form-control" id="CompanyNameUpdate" placeholder="Şirket İsmi Giriniz" value="@Model.CompanyName">
+            </div>
+            <div class="form-group">
+                <label for="NameUpdate">Yetkili</label>
+                <input type="text" class="form-control" id="AuthorizedUpdate" placeholder="Yetkili Giriniz" value="@Model.Authorized">
+            </div>
+            <div class="form-group">
+                <label for="CityUpdate">City</label>
+                <input type="text" class="form-control" id="CityUpdate" placeholder="City Giriniz" value="@Model.City">
+            </div>
+            <div class="form-group">
+                <label for="DistrictUpdate">District</label>
+                <input type="text" class="form-control" id="DistrictUpdate" placeholder="District Giriniz" value="@Model.District">
+            </div>
+            <div class="form-group">
+                <label for="PostCodeUpdate">PostCode</label>
+                <input type="text" class="form-control" id="PostCodeUpdate" placeholder="PostCode Giriniz" value="@Model.PostCode">
+            </div>
+            <div class="form-group">
+                <label for="AddressUpdate">Address</label>
+                <input type="text" class="form-control" id="AddressUpdate" placeholder="Address Giriniz" value="@Model.Address">
+            </div>
+            <div class="form-group">
+                <label for="EmailUpdate">Email</label>
+                <input type="email" class="form-control" id="EmailUpdate" placeholder="Email Giriniz" value="@Model.Email">
+            </div>
+            <div class="form-group">
+                <label for="PhoneUpdate">Phone</label>
+                <input type="text" class="form-control" id="PhoneUpdate" placeholder="Phone Giriniz" value="@Model.Phone">
+            </div>
+            <div class="form-group">
+                <label for="TaxNoUpdate">TaxNo</label>
+                <input type="text" class="form-control" id="TaxNoUpdate" placeholder="TaxNo Giriniz" value="@Model.TaxNo">
+            </div>
+            <div class="form-group">
+                <label for="TaxOfficeUpdate">TaxOffice</label>
+                <input type="text" class="form-control" id="TaxOfficeUpdate" placeholder="TaxOffice Giriniz" value="@Model.TaxOffice">
+            </div>
+            <div class="form-group">
+                <label for="TcNoUpdate">TcNo</label>
+                <input type="text" class="form-control" id="TcNoUpdate" placeholder="TcNo Giriniz" value="@Model.TcNo">
+            </div>
+
+        </div>
+    </form>
+</div>

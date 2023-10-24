@@ -1,0 +1,81 @@
+﻿@using Accounting.DATA.Entity
+@model IEnumerable<Expense>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">DataTable with default features</h3>
+
+                    </div>
+
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>İsmi</th>
+                                    <th>Tip</th>
+                                    <th>Fiyat</th>
+                                    <th>Açıklama</th>
+                                    <th>Evrak No</th>
+                                    <th>Tarih</th>
+                                    <th>Ödeme Durumu</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Name</td>
+                                            <td>@item.Type</td>
+                                            <td>@item.Amount</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.DocNo</td>
+                                            <td>@item.Date</td>
+                                            <td>@item.IsPaid</td>
+                                            <td>
+                                                @if (!item.IsPaid)
+                                                {
+                                                    <button class="btn btn-info" onclick="PayView('@item.Id')">Ödeme/Tahsilat</button>
+                                                }
+                                                <button class="btn btn-warning" data-toggle="modal" data-target="#modalUpdate" onclick="Duzenle('@item.Id')">Güncelle</button>
+                                                <button class="btn btn-danger" onclick="Sil('@item.Id')">Sil</button>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
+</script>
+

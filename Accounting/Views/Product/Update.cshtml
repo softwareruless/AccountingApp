@@ -1,0 +1,49 @@
+﻿@using Accounting.DATA.Entity
+@model Product
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Kullanıcı Düzenle</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form>
+        <input type="hidden" id="IdUpdate" value="@Model.Id" />
+        <div class="card-body">
+            <div class="form-group">
+                <label for="Name">İsim</label>
+                <input type="text" class="form-control" id="NameUpdate" value="@Model.Name">
+            </div>
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <input type="text" class="form-control" id="DescriptionUpdate" value="@Model.Description">
+            </div>
+            <div class="form-group">
+                <label for="Description1">Description1</label>
+                <input type="text" class="form-control" id="Description1Update" value="@Model.Description1">
+            </div>
+            <div class="form-group">
+                <label for="Description2">Description2</label>
+                <input type="text" class="form-control" id="Description2Update" value="@Model.Description2">
+            </div>
+            <div class="form-group">
+                <label for="Description3">Description3</label>
+                <input type="text" class="form-control" id="Description3Update" value="@Model.Description3">
+            </div>
+            <div class="form-group">
+                <label for="Description4">Description4</label>
+                <input type="text" class="form-control" id="Description4Update" value="@Model.Description4">
+            </div>
+            <div class="form-group">
+                <label for="Stock">Stock</label>
+                <input type="number" class="form-control" id="StockUpdate" value="@Model.Stock">
+            </div>
+            <div class="form-group">
+                <label for="Price">Price</label>
+                <input type="text" class="form-control" id="PriceUpdate" value="@Model.Price">
+            </div>
+        </div>
+    </form>
+</div>
+
+

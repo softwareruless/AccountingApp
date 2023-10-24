@@ -1,0 +1,213 @@
+﻿
+@{
+    ViewData["Title"] = "Teklif Sipariş";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-3">
+                <h1>DataTables</h1>
+            </div>
+            <div class="col-md-6">
+                <a class="btn btn-primary" href="/Invoice/CreateOfferGiven">Yeni Verilen Teklif</a>
+                <a class="btn btn-danger" href="/Invoice/CreateOrderReceived">Yeni Alınan Sipariş</a>
+                <a class="btn btn-primary" href="/Invoice/CreateOrderGiven">Yeni Verilen Sipariş</a>
+                <a class="btn btn-danger" href="/Invoice/CreateOfferReceived">Yeni Alınan Teklif</a>
+            </div>
+            <div class="col-sm-3">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+                    <li class="breadcrumb-item active">DataTables</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div id="list-partial">
+
+</div>
+
+
+<div class="modal fade" id="modalDetail">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Large Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body" id="modal-detail">
+
+            </div>
+
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@section scripts{
+    <script>
+        function closeModal() {
+            $('#modalAdd').modal('hide');
+            $('#modalUpdate').modal('hide');
+            $('#modalDetail').modal('hide');
+        }
+
+        function Partial() {
+            $.ajax({
+                url: "/Invoice/GetList",
+
+                success: function (result) {
+                    $('#list-partial').html(result);
+                },
+
+            })
+        }
+
+        function Ekle() {
+
+            var model = {
+                Name: $("#Name").val(),
+                City: $("#City").val(),
+                District: $("#District").val(),
+                PostCode: $("#PostCode").val(),
+                Address: $("#Address").val(),
+                Email: $("#Email").val(),
+                Phone: $("#Phone").val(),
+                TaxNo: $("#TaxNo").val(),
+                TaxOffice: $("#TaxOffice").val(),
+                TcNo: $("#TcNo").val(),
+            };
+
+            $.ajax({
+                url: "/Invoice/Add",
+                data: {
+                    "model": model
+                },
+                type: 'POST',
+
+                success: function (response) {
+
+                    if (response.status == true) {
+
+                        toastr.success(response.message);
+
+                        setTimeout(function () {
+                            closeModal();
+                            Partial();
+                        }, 700);
+                    }
+                    else {
+                        toastr.error(response.message);
+                    }
+                },
+
+            })
+        }
+
+        function Duzenle(id) {
+            $.ajax({
+                url: "/Invoice/Update",
+                data: {
+                    "id": id
+                },
+
+                success: function (result) {
+                    $('#modal-update').html(result);
+                },
+
+            })
+        }
+
+        function DuzenlePost() {
+            var model = {
+                Id: $("#IdUpdate").val(),
+                Name: $("#NameUpdate").val(),
+                City: $("#CityUpdate").val(),
+                District: $("#DistrictUpdate").val(),
+                PostCode: $("#PostCodeUpdate").val(),
+                Address: $("#AddressUpdate").val(),
+                Email: $("#EmailUpdate").val(),
+                Phone: $("#PhoneUpdate").val(),
+                TaxNo: $("#TaxNoUpdate").val(),
+                TaxOffice: $("#TaxOfficeUpdate").val(),
+                TcNo: $("#TcNoUpdate").val(),
+            };
+
+            $.ajax({
+                url: "/Invoice/Update",
+                data: {
+                    "model": model
+                },
+                type: "POST",
+
+                success: function (response) {
+                    if (response.status == true) {
+
+                        toastr.success(response.message);
+
+                        setTimeout(function () {
+                            closeModal();
+                            Partial();
+                        }, 700);
+                    }
+                    else {
+                        toastr.error(response.message);
+                    }
+                }
+            })
+        }
+
+        function Sil(id) {
+            $.ajax({
+                url: "/Invoice/Delete",
+                data: {
+                    "id": id
+                },
+
+                success: function (response) {
+                    if (response.status == true) {
+
+                        toastr.success(response.message);
+
+                        setTimeout(function () {
+                            Partial();
+                        }, 500);
+                    }
+                    else {
+                        toastr.error(response.message);
+                    }
+                }
+            })
+        }
+
+        function Detay(id) {
+            $.ajax({
+                url: "/Invoice/Detail",
+                data: {
+                    "id": id
+                },
+
+                success: function (result) {
+                    $('#modal-detail').html(result);
+                },
+
+            })
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            Partial();
+        });
+    </script>
+}

@@ -1,0 +1,167 @@
+﻿@using Accounting.DATA.Entity
+@model Check
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Customers = ViewBag.Customer as List<Customer>;
+}
+
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Çek Güncelle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Çek Güncelle</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Çek Ekle</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Müşteri</label>
+                            <select class="form-control" id="CustomerId">
+                                <option value="0">Müşteri Seçiniz</option>
+                                @foreach (var item in Customers)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">İsim</label>
+                            <input type="text" class="form-control" id="Name" placeholder="İsim Giriniz" name="Name" value="@Model.Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="Amount">Tutar</label>
+                            <input type="number" class="form-control" id="Amount" placeholder="Tutar" name="Amount" value="@Model.Amount">
+                        </div>
+                        <div class="form-group">
+                            <label for="Description">Açıklama</label>
+                            <input type="text" class="form-control" id="Description" placeholder="Açıklama Giriniz" name="Description" value="@Model.Description">
+                        </div>
+                        <div class="form-group">
+                            <label for="CheckNo">CheckNo</label>
+                            <input type="text" class="form-control" id="CheckNo" placeholder="CheckNo Giriniz" name="CheckNo" value="@Model.CheckNo">
+                        </div>
+                        <div class="form-group">
+                            <label for="BankName">BankName</label>
+                            <input type="text" class="form-control" id="BankName" placeholder="BankName Giriniz" name="BankName" value="@Model.BankName">
+                        </div>
+                        <div class="form-group">
+                            <label for="BankBranch">BankBranch</label>
+                            <input type="text" class="form-control" id="BankBranch" placeholder="BankBranch Giriniz" name="BankBranch" value="@Model.BankBranch">
+                        </div>
+                        <div class="form-group">
+                            <label for="AccountNumber">AccountNumber</label>
+                            <input type="text" class="form-control" id="AccountNumber" placeholder="AccountNumber Giriniz" name="AccountNumber" value="@Model.AccountNumber">
+                        </div>
+                        <div class="form-group">
+                            <label for="Title">Title</label>
+                            <input type="text" class="form-control" id="Title" placeholder="Title Giriniz" name="Title" value="@Model.Title">
+                        </div>
+                        <div class="form-group">
+                            <label for="Date">Tarih</label>
+                            <input type="datetime-local" class="form-control" id="Date" placeholder="Tarih Giriniz" name="Date">
+                        </div>
+                        <div class="form-group">
+                            <label for="ExpiryDate">Vade Tarihi</label>
+                            <input type="datetime-local" class="form-control" id="ExpiryDate" placeholder="Tarih Giriniz" name="ExpiryDate">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Durum</label>
+                            <select class="form-control" id="Status">
+                                <option value="0">Beklemede</option>
+                                <option value="1">Cirolu</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Evrak Türü</label>
+                            <select class="form-control" id="DocType">
+                                <option value="0">Orijinal Evrak</option>
+                                <option value="1">Cirolu Evrak</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Evrak Türü</label>
+                            <select class="form-control" id="Type">
+                                <option value="0">Kendi Evrağımız</option>
+                                <option value="1">Müşteri Evrağı</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <button type="submit" onclick="Update()" class="btn btn-primary">Çek Güncelle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function Update() {
+        var check = {
+            Id: $("#Id").val(),
+            CustomerId: $("#CustomerId").val(),
+            Name: $("#Name").val(),
+            Amount: $("#Amount").val(),
+            Description: $("#Description").val(),
+            CheckNo: $("#CheckNo").val(),
+            BankName: $("#BankName").val(),
+            BankBranch: $("#BankBranch").val(),
+            AccountNumber: $("#AccountNumber").val(),
+            Title: $("#Title").val(),
+            Date: $("#Date").val(),
+            ExpiryDate: $("#ExpiryDate").val(),
+            Status: $("#Status").val(),
+            DocType: $("#DocType").val(),
+            Type: $("#Type").val(),
+        };
+
+        $.ajax({
+            url: "/Check/Update",
+            data: {
+                "check": check
+            },
+            type: "POST",
+
+            success: function (response) {
+                if (response.status == true) {
+
+                    toastr.success(response.message);
+
+                    setTimeout(function () {
+                        window.location.href = "/Check/Index";
+                    }, 700);
+                }
+                else {
+                    toastr.error(response.message);
+                }
+            }
+        })
+    }
+</script>
+
+

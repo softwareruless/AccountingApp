@@ -1,0 +1,56 @@
+﻿@using Accounting.DATA.Entity
+@model Product
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Kullanıcı Düzenle</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="Name">İsim</label>
+                <input type="text" class="form-control" id="NameUpdate" value="@Model.Name" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <input type="text" class="form-control" id="DescriptionUpdate" value="@Model.Description" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="Description1">Description1</label>
+                <input type="text" class="form-control" id="Description1Update" value="@Model.Description1" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="Description2">Description2</label>
+                <input type="text" class="form-control" id="Description2Update" value="@Model.Description2" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="Description3">Description3</label>
+                <input type="text" class="form-control" id="Description3Update" value="@Model.Description3" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="Description4">Description4</label>
+                <input type="text" class="form-control" id="Description4Update" value="@Model.Description4" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="Stock">Stock</label>
+                <input type="number" class="form-control" id="StockUpdate" value="@Model.Stock" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="Price">Price</label>
+                <input type="text" class="form-control" id="PriceUpdate" value="@Model.Price" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="CreatedOn">CreatedOn</label>
+                <input type="text" class="form-control" id="CreatedOn" value="@Model.CreatedOn" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="UpdatedOn">UpdatedOn</label>
+                <input type="text" class="form-control" id="UpdatedOn" value="@Model.UpdatedOn" readonly="readonly">
+            </div>
+        </div>
+    </form>
+</div>
+
+

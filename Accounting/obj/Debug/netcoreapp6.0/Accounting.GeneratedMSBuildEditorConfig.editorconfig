@@ -1,0 +1,317 @@
+is_global = true
+build_property.TargetFramework = netcoreapp6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Accounting
+build_property.RootNamespace = Accounting
+build_property.ProjectDir = /Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Areas/Admin/Views/Account/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWNjb3VudC9BZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Areas/Admin/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWNjb3VudC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Areas/Admin/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Areas/Admin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Areas/Admin/Views/Shortcut/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2hvcnRjdXQvRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Areas/Admin/Views/Shortcut/GetList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2hvcnRjdXQvR2V0TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Areas/Admin/Views/Shortcut/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2hvcnRjdXQvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Areas/Admin/Views/Shortcut/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2hvcnRjdXQvVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Bank/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmFuay9BZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Bank/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmFuay9EZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Bank/GetListDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmFuay9HZXRMaXN0RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Bank/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmFuay9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Bank/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmFuay9VcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Check/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hlY2svQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Check/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hlY2svRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Check/GetList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hlY2svR2V0TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Check/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hlY2svSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Check/MakeEndorsed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hlY2svTWFrZUVuZG9yc2VkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Check/SendBank.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hlY2svU2VuZEJhbmsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Check/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hlY2svVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/CompanyInfo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29tcGFueUluZm8vSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Customer/Current.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvQ3VycmVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Customer/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Customer/GetList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvR2V0TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Customer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Customer/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Expense/GetList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXhwZW5zZS9HZXRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Expense/PayView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXhwZW5zZS9QYXlWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Expense/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXhwZW5zZS9VcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/ExpenseTitle/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXhwZW5zZVRpdGxlL0RldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/ExpenseTitle/GetList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXhwZW5zZVRpdGxlL0dldExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/ExpenseTitle/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXhwZW5zZVRpdGxlL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/ExpenseTitle/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXhwZW5zZVRpdGxlL1VwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Installment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5zdGFsbG1lbnQvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Installment/InstallmentPayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5zdGFsbG1lbnQvSW5zdGFsbG1lbnRQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/Buy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9CdXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/CreateInvoice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9DcmVhdGVJbnZvaWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/CreateOfferGiven.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9DcmVhdGVPZmZlckdpdmVuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/CreateOfferReceived.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9DcmVhdGVPZmZlclJlY2VpdmVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/CreateOrderGiven.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9DcmVhdGVPcmRlckdpdmVuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/CreateOrderReceived.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9DcmVhdGVPcmRlclJlY2VpdmVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9EZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/GetList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9HZXRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/InvoicePrint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9JbnZvaWNlUHJpbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/Invoices.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9JbnZvaWNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/OfferToOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9PZmZlclRvT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/Refund.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9SZWZ1bmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Invoice/Sale.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9TYWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Payment/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGF5bWVudC9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Payment/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGF5bWVudC9VcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Product/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9EZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Product/GetList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9HZXRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Product/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9VcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Safe/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2FmZS9BZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Safe/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2FmZS9EZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Safe/GetListDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2FmZS9HZXRMaXN0RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Safe/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2FmZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Safe/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2FmZS9VcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Session/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2Vzc2lvbi9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/UserShortcut/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlclNob3J0Y3V0L0FkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/UserShortcut/GetList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlclNob3J0Y3V0L0dldExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/UserShortcut/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlclNob3J0Y3V0L0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yusufbozkurt/Desktop/projects/TeknoSistemBilisimAccounting/Accounting/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

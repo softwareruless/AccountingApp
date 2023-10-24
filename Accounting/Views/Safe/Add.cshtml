@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kasa Ekle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Kasa Ekle</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Kasa Ekle</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="/Safe/Add" method="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">Kasa İsmi</label>
+                                <input type="text" class="form-control" id="Name" placeholder="İsim Giriniz" name="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="Description">Açıklama</label>
+                                <input type="text" class="form-control" id="Description" placeholder="Açıklama Giriniz" name="Description">
+                            </div>
+                            <div class="form-group">
+                                <label for="StartBalance">Başlangıç Bakiyesi</label>
+                                <input type="text" class="form-control" id="StartBalance" placeholder="Başlangıç Bakiyesi Giriniz" name="StartBalance">
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Kasa Ekle</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

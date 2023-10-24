@@ -1,0 +1,93 @@
+﻿@using Accounting.DATA.Entity
+@model List<Invoice>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>DataTables</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+                    <li class="breadcrumb-item active">DataTables</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">DataTable with default features</h3>
+                    </div>
+
+                    <div>
+                        <a href="/Invoice/CreateInvoice?type=4" class="btn btn-primary">Satış Faturası</a>
+                        <a href="/Invoice/CreateInvoice?type=5" class="btn btn-primary">Alış Faturası</a>
+                        <a href="/Invoice/CreateInvoice?type=6" class="btn btn-primary">Satış İrsaliyesi</a>
+                        <a href="/Invoice/CreateInvoice?type=7" class="btn btn-primary">Alış İrsaliyesi</a>
+                        <a href="/Invoice/CreateInvoice?type=8" class="btn btn-primary">Satış İade</a>
+                        <a href="/Invoice/CreateInvoice?type=9" class="btn btn-primary">Alış İade</a>
+                    </div>
+
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Oluşturulma Tarihi</th>
+                                    <th>Müşteri</th>
+                                    <th>Toplam</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.CreatedOn</td>
+                                            <td>@item.Customer.Name</td>
+                                            <td>@item.Total</td>
+                                            <td>
+                                                <a class="btn btn-warning" href="/Invoice/Refund?InvoiceId=@item.Id">İade Et</a>
+                                                <a class="btn btn-primary" href="/Invoice/EInvoice?InvoiceId=@item.Id">E-Fatura</a>
+                                                <a class="btn btn-info" href="/Invoice/Detail?InvoiceId=@item.Id">Detay</a>
+                                                @*<a class="btn btn-warning" href="/Bank/Update?id=@item.Id">Güncelle</a>*@
+                                                @*<a class="btn btn-danger" href="/Bank/Delete?id=@item.Id">Sil</a>*@
+                                                @*<a class="btn btn-info" href="/Installment/InstallmentPayment?InstallmentId=@item.Id">Detay</a>*@
+                                            </td>
+                                        </tr>
+                                    }
+
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Rendering engine</th>
+                                    <th>Browser</th>
+                                    <th>Platform(s)</th>
+                                    <th>Engine version</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

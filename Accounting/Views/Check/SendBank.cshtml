@@ -1,0 +1,99 @@
+﻿@using Accounting.DATA.Entity
+@model Check
+@{
+    ViewData["Title"] = "SendBank";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Çek/Senet Detay</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Home">Home</a></li>
+                    <li class="breadcrumb-item active">Çek/Senet</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-7">
+                <input type="hidden" id="Id" value="@Model.Id" />
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Çeki Cirola</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="Date">Tarih</label>
+                            <input type="datetime-local" class="form-control" id="Date" placeholder="Tarih Giriniz" name="Date">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Müşteri</label>
+                            <select class="form-control" id="Bank">
+                                <option value="0">Ziraat</option>
+                                <option value="1">Finansbank</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" onclick="MakeEndorsed()" class="btn btn-primary">Cirola</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    function MakeEndorsed() {
+        var check = {
+            Id: $("#Id").val(),
+            Bank: $("#Bank").val(),
+            Date: $("#Date").val(),
+        };
+
+        $.ajax({
+            url: "/Check/SendBank",
+            data: {
+                "check": check
+            },
+            type: "POST",
+
+            success: function (response) {
+                if (response.status == true) {
+
+                    toastr.success(response.message);
+
+                    setTimeout(function () {
+                        window.location.href = "/Check/Index";
+                    }, 700);
+                }
+                else {
+                    toastr.error(response.message);
+                }
+            }
+        })
+    }
+</script>
+
+
+
+
+
+
+
+
